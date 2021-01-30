@@ -3,7 +3,7 @@ total_months = 0
 total_profit_loss_amount = 0.00
 average_profit_loss = 0.00
 greatest_increase = {"date": "", "amount": 0}
-greatest_decrease = {}
+greatest_decrease = {"date": "", "amount": 0}
 
 file_path = "./Resources/budget_data.csv"
 
