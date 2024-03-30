@@ -1,3 +1,4 @@
+import csv
 # Needed:
 # 1. The total number of votes cast
 # 2. A complete list of candidates who received votes
@@ -7,17 +8,21 @@
 
 # start here
 # create variables
+election_file_path = "PyPoll\Resources\election_data.csv"
+total_votes = 0
+
 # open the file
-import csv
-file_path = "PyPoll\Resources\election_data.csv"
+with open(election_file_path) as election_file:
+    csv_file = csv.reader(election_file)
+    next(csv_file)  # skips a row in the file ( first row =header row)
+    # read a row in the file
+    for row in csv_file:
+        # add to total votes
+        total_votes += 1
 
-# with open(file_path) as text:
-#     csv_file = csv.reader(text)
 
-#     for row in csv_file:
-# read a row in the file
-# add to total votes
 # print the results to screen
+print(total_votes)
 # print the results to file
 
 
