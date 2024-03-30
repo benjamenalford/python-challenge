@@ -28,15 +28,6 @@ with open(election_file_path) as election_file:
             candidate_votes[candidate_id] += 1
 # done reading the file
 
-# find the winner
-winning_candidate = ""
-winning_candidate_votes = 0
-for candidate in candidates:
-    current_votes = candidate_votes[candidates.index(candidate)]
-    if current_votes > winning_candidate_votes:
-        winning_candidate = candidate
-        winning_candidate_votes = current_votes
-
 # print the results to screen
 print('Election Results')
 print('-------------------------')
@@ -48,7 +39,7 @@ for candidate in candidates:
     print(
         f'{candidate}: {round(current_vote_pct,3)}% ({current_candidate_votes})')
 print('-------------------------')
-print(f'Winner: {winning_candidate}')
+print(f'Winner: {candidates[candidate_votes.index(max(candidate_votes))]}')
 print('-------------------------')
 
 # print the results to file
@@ -64,6 +55,7 @@ with open(out_file_path, 'w') as file_out:
         file_out.write(
             f'{candidate}: {round(current_vote_pct,3)}% ({current_candidate_votes})\n')
     file_out.write('-------------------------\n')
-    file_out.write(f'Winner: {winning_candidate}\n')
+    file_out.write(
+        f'Winner: {candidates[candidate_votes.index(max(candidate_votes))]}\n')
     file_out.write('-------------------------\n')
 # end here
