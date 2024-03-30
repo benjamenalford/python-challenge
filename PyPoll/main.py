@@ -3,7 +3,7 @@ import csv
 # 1. The total number of votes cast - done
 # 2. A complete list of candidates who received votes - done*
 # 3. The percentage of votes each candidate won
-# 4. The total number of votes each candidate won
+# 4. The total number of votes each candidate won - done *
 # 5. The winner of the election based on popular vote
 
 # start here
@@ -29,14 +29,18 @@ with open(election_file_path) as election_file:
             # add to list if they haven't been added to the list
             candidates.append(candidate)
             candidate_votes.append(1)  # add the first vote
-        else:
-
+        else:  # candidate is in list
+            candidate_id = candidates.index(candidate)
+            candidate_votes[candidate_id] += 1
 
 # print the results to screen
 print('Election Results')
 print('-------------------------')
 print(f'Total Votes: {total_votes}')
 print('-------------------------')
+for candidate in candidates:
+    print(
+        f'{candidate}: 23.049% ({candidate_votes[candidates.index(candidate)]})')
 
 print(len(candidates), "candidates")
 print(candidates, "candidates")
